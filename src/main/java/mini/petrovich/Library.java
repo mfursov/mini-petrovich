@@ -1,12 +1,16 @@
 package mini.petrovich;
 
+/**
+ * Наборы правил по умолчанию для имен, фамилий и отчеств.
+ */
+
 final class Library {
     static final char KEEP_CHARACTER = '.';
     static final char REMOVE_CHARACTER = '-';
     static final String KEEP_MOD = Character.toString(KEEP_CHARACTER);
     static final String[] KEEP_ALL = new String[]{KEEP_MOD, KEEP_MOD, KEEP_MOD, KEEP_MOD, KEEP_MOD};
 
-    public static final RuleSet LAST_NAME_RULES = new RuleSet(
+    static final RuleSet LAST_NAME_RULES = new RuleSet(
             new Rule[]{ //Exceptions
                     both(t("бонч", "абдул", "белиц", "гасан", "дюссар", "дюмон", "книппер", "корвин", "ван", "шолом", "тер", "призван", "мелик", "вар", "фон"), KEEP_ALL),
                     both(t("дюма", "тома", "дега", "люка", "ферма", "гамарра", "петипа", "шандра", "скаля", "каруана"), KEEP_ALL),
@@ -57,7 +61,7 @@ final class Library {
             }
     );
 
-    public static final RuleSet FIRST_NAME_RULES = new RuleSet(
+    static final RuleSet FIRST_NAME_RULES = new RuleSet(
             new Rule[]{ // Exceptions
                     male(t("лев"), m("--ьва", "--ьву", "--ьва", "--ьвом", "--ьве")),
                     male(t("пётр"), m("---етра", "---етру", "---етра", "---етром", "---етре")),
@@ -87,7 +91,7 @@ final class Library {
             }
     );
 
-    public static final RuleSet PATRONYMIC_NAME_RULES = new RuleSet(
+    static final RuleSet PATRONYMIC_NAME_RULES = new RuleSet(
             new Rule[]{},// Exceptions
             new Rule[]{ // Suffixes
                     male(t("ич"), m("а", "у", "а", "ем", "е")),
@@ -95,23 +99,23 @@ final class Library {
             }
     );
 
-    public static String[] t(String... values) {
+    static String[] t(String... values) {
         return values;
     }
 
-    public static String[] m(String... values) {
+    static String[] m(String... values) {
         return values;
     }
 
-    public static Rule male(String[] exceptions, String[] suffixes) {
+    static Rule male(String[] exceptions, String[] suffixes) {
         return new Rule(Gender.Male, exceptions, suffixes);
     }
 
-    public static Rule female(String[] exceptions, String[] suffixes) {
+    static Rule female(String[] exceptions, String[] suffixes) {
         return new Rule(Gender.Female, exceptions, suffixes);
     }
 
-    public static Rule both(String[] exceptions, String[] suffixes) {
+    static Rule both(String[] exceptions, String[] suffixes) {
         return new Rule(Gender.Both, exceptions, suffixes);
     }
 }

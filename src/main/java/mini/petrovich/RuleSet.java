@@ -1,6 +1,6 @@
 package mini.petrovich;
 
-final class RuleSet {
+public final class RuleSet {
     /**
      * Исключения
      */
