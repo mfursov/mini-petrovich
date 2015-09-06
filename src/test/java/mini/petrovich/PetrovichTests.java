@@ -19,7 +19,6 @@ import static mini.petrovich.Library.male;
 import static mini.petrovich.Library.t;
 import static org.testng.Assert.assertEquals;
 
-@SuppressWarnings({"SpellCheckingInspection"})
 @Test
 public class PetrovichTests {
 
@@ -39,6 +38,7 @@ public class PetrovichTests {
         assertEquals(Petrovich.applyMod("", "test"), "test");
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void testFindModInRule() throws Exception {
         Rule[] rules = {
