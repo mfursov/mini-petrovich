@@ -39,7 +39,7 @@ p.say("Пушкин", NameType.LastName, Gender.Male, Case.Prepositional) ➟  "
 
 ### История
 
-Оригинальный алгоритм был разработан на языке Ruby [petrovich-ruby](https://github.com/petrovich/petrovich-ruby) Андреем Козловым и Дмитрием Усталовым.
+Оригинальный алгоритм был разработан на языке Ruby Андреем Козловым и Дмитрием Усталовым: [petrovich-ruby](https://github.com/petrovich/petrovich-ruby).
 
 На Java алгоритм был портирован Ринатом Мулюковым: [petrovich-java](https://github.com/petrovich/petrovich-java).
  
