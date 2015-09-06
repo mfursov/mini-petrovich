@@ -21,7 +21,7 @@ import static org.testng.Assert.assertEquals;
 
 @SuppressWarnings({"SpellCheckingInspection"})
 @Test
-public class PetrovichTest {
+public class PetrovichTests {
 
     private Petrovich petrovich;
 
@@ -119,7 +119,7 @@ public class PetrovichTest {
 
 
     private static List<String[]> load(String fileName) {
-        InputStream is = PetrovichTest.class.getResourceAsStream("/" + fileName);
+        InputStream is = PetrovichTests.class.getResourceAsStream("/" + fileName);
         try {
             List<String[]> res = new ArrayList<String[]>();
             for (Scanner scanner = new Scanner(is, "UTF-8"); scanner.hasNext(); ) {

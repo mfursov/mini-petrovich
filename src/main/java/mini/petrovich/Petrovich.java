@@ -64,9 +64,10 @@ public class Petrovich {
         if (allRules == null) {
             return null;
         }
+        String lcName = name.toLowerCase();
         for (Rule rule : allRules) {
             for (String test : rule.test) {
-                if (name.endsWith(test) && (rule.gender == Gender.Both || rule.gender == gender)) {
+                if (lcName.endsWith(test) && (rule.gender == Gender.Both || rule.gender == gender)) {
                     return rule;
                 }
             }
