@@ -3,7 +3,7 @@
 
 __mini-petrovich__ is a Java library which inflects Russian names to given grammatical case. It supports first names, last names and patronymic names inflections.
 
-__mini_petrovich__  - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств.
+__mini-petrovich__  - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств.
 
 ## Building
 
