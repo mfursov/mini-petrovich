@@ -1,11 +1,9 @@
-![Petrovich](petrovich.png) petrovich-java
+![Petrovich](petrovich.png) mini-petrovich
 ==========================================
 
-__petrovich-java__ is library which inflects Russian names to given grammatical case. It supports first names, last names and middle names inflections.
+__mini-petrovich__ is Java library which inflects Russian names to given grammatical case. It supports first names, last names and patronymic names inflections.
 
-__petrovich-java__ is Java implementation of Petrovich ruby gem.
-
-[![Build Status](https://travis-ci.org/petrovich/petrovich-java.svg?branch=master)]	(https://travis-ci.org/petrovich/petrovich-java)
+__mini_petrovich__  это Java библиотека склонения по пажежам русских имен, фамилий и отчеств
 
 ## Building
 
@@ -16,33 +14,34 @@ mvn -DskipTests=true clean package install
 ## Usage
 
 ```java
-PetrovichDeclinationMaker maker = PetrovichDeclinationMaker.getInstance();
-
-maker.make(NamePart.FIRSTNAME, Gender.MALE, Case.GENITIVE, "Иван");     //Ивана
-maker.make(NamePart.LASTNAME, Gender.MALE, Case.INSTRUMENTAL, "Иванов");   //Ивановым
-maker.make(NamePart.MIDDLENAME, Gender.FEMALE, Case.DATIVE, "Ивановна");   //Ивановне
+Petrovich p = new Petrovich();
+p.say("Иван", LastName, Male, Case.Genitive), "Иван"
+p.say("Иван", LastName, Male, Case.Dative), "Ивану")
 ```
 
-Also you can use more convenient syntax
+### Алгоритм
 
-```java
-PetrovichDeclinationMaker maker = PetrovichDeclinationMaker.getInstance();
+Все используемые правила перечисленны в классе Library и занимают порядка 100 строк кода. Меняйте их при необходимости прямо в коде или используйте конструктор класса Petrovich, 
+который в качестве аргумента принимает наибор внешних правил. 
 
-maker.male.firstname().toGenitive("Иван");      //"Ивана"
-maker.male.lastname().toInstrumental("Иванов");     //"Ивановым"
-maker.female.middlename().toDative("Ивановна");     //"Ивановне"
-```
+### Точность
 
-### Custom rule file
+Подробно о точности от оригинальных разработчиков [petrovich-ruby](https://github.com/petrovich/petrovich-ruby#Оценка-аккуратности) project front page
 
-You can replace default rules file with some custom one. Only JSON format supported by now.
-```java
-PetrovichDeclinationMaker maker = PetrovichDeclinationMaker.getInstance("/path/to/custom/rules.file.json");
-```
+Если коротко: благодаря тому, что в библиотеке используется знание о роде (мужской, женский) и типе (имя, фамилия, отчество) результат оказывается более точным,
+чем выдаваемый сервисом [Yandex Inflect](https://export.yandex.ru/inflect.xml?name=%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2%D0%B8%D1%87). 
 
-### Accuracy
+Кроме этого, Yandex Inflect имеет проблемы с буквой 'ё' и, в ряде случаев проглатывает букву 'н' в женских именах в родительском роде.
 
-You can read about accuracy statistics in [petrovich-ruby](https://github.com/petrovich/petrovich-ruby#Оценка-аккуратности) project front page
+
+### История
+
+Оригинально алгоритм разработан на языке Ruby [petrovich-ruby](https://github.com/petrovich/petrovich-ruby) Андрей Козловым и Дмитрием Усталовым.
+
+Оригинальная Java версия была разработана Ринатом Мулюковым: [petrovich-java](https://github.com/petrovich/petrovich-java)
+ 
+Этот форк Java версии убирает все зависимости от сторонних библиотек, добавляет несколько сотен тестов и исправляет ряд ошибок оригинального алгоритма.
+  
 
 ### License
 
