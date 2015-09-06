@@ -5,6 +5,8 @@ __mini-petrovich__ is a Java library which inflects Russian names to given gramm
 
 __mini-petrovich__  - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств.
 
+[![Build Status](https://travis-ci.org/mfursov/mini-petrovich.svg?branch=master)]	(https://travis-ci.org/mfursov/mini-petrovich)
+
 ## Building
 
 ```
