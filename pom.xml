@@ -9,7 +9,7 @@
 
     <name>mini-petrovich</name>
     <description>Petrovich is a Java library which inflects Russian names to given grammatical case. It supports first names, last names and patronymic names inflections.</description>
-    <url>http://mfursov.github.io/petrovich</url>
+    <url>https://github.com/mfursov/mini-petrovich</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
