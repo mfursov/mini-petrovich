@@ -3,7 +3,7 @@
 
 __petrovich4j__ is a Java library which inflects Russian names to given grammatical case. It supports first names, last names and patronymic names inflections.
 
-__petrovich4j__  - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств.
+__petrovich4j__ - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств. Библиотека не имеет дополнительных зависимостей и занимает порядка 10кб.
 
 [![Build Status](https://travis-ci.org/petrovich4j/petrovich4j.svg?branch=master)]	(https://travis-ci.org/petrovich4j/petrovich4j)
 
