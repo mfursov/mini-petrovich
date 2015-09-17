@@ -2,14 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>mini</groupId>
-    <artifactId>mini-petrovich</artifactId>
+    <groupId>com.github.petrovich4j</groupId>
+    <artifactId>petrovich4j</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>mini-petrovich</name>
+    <name>petrovich4j</name>
     <description>Petrovich is a Java library which inflects Russian names to given grammatical case. It supports first names, last names and patronymic names inflections.</description>
-    <url>https://github.com/mfursov/mini-petrovich</url>
+    <url>https://github.com/petrovich4j/petrovich4j</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.9.4</version>
+            <version>6.9.6</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

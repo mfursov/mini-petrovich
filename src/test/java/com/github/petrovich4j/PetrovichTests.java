@@ -1,4 +1,4 @@
-package mini.petrovich;
+package com.github.petrovich4j;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static mini.petrovich.Gender.Both;
-import static mini.petrovich.Gender.Female;
-import static mini.petrovich.Gender.Male;
-import static mini.petrovich.Library.both;
-import static mini.petrovich.Library.female;
-import static mini.petrovich.Library.m;
-import static mini.petrovich.Library.male;
-import static mini.petrovich.Library.t;
+import static com.github.petrovich4j.Gender.Both;
+import static com.github.petrovich4j.Gender.Female;
+import static com.github.petrovich4j.Gender.Male;
+import static com.github.petrovich4j.Library.both;
+import static com.github.petrovich4j.Library.female;
+import static com.github.petrovich4j.Library.m;
+import static com.github.petrovich4j.Library.male;
+import static com.github.petrovich4j.Library.t;
 import static org.testng.Assert.assertEquals;
 
 @Test

@@ -1,11 +1,11 @@
-![Petrovich](petrovich.png) mini-petrovich
+![Petrovich](petrovich.png) petrovich4j
 ==========================================
 
-__mini-petrovich__ is a Java library which inflects Russian names to given grammatical case. It supports first names, last names and patronymic names inflections.
+__petrovich4j__ is a Java library which inflects Russian names to given grammatical case. It supports first names, last names and patronymic names inflections.
 
-__mini-petrovich__  - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств.
+__petrovich4j__  - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств.
 
-[![Build Status](https://travis-ci.org/mfursov/mini-petrovich.svg?branch=master)]	(https://travis-ci.org/mfursov/mini-petrovich)
+[![Build Status](https://travis-ci.org/petrovich4j/petrovich4j.svg?branch=master)]	(https://travis-ci.org/petrovich4j/petrovich4j)
 
 ## Building
 
@@ -43,7 +43,7 @@ p.say("Пушкин", NameType.LastName, Gender.Male, Case.Prepositional) ➟  "
 
 На Java алгоритм был портирован Ринатом Мулюковым: [petrovich-java](https://github.com/petrovich/petrovich-java).
  
-Java версия *petrovich-mini* убирает все зависимости от сторонних библиотек, добавляет несколько сотен тестов и исправляет ряд найденных ошибок.
+Java версия *petrovich4j* убирает все зависимости от сторонних библиотек, добавляет несколько сотен тестов и исправляет ряд найденных ошибок.
 
 Итого: размер библиотеки со всеми зависимостями составляет 10 килобайт, из которых 90% занимают правила. 
   

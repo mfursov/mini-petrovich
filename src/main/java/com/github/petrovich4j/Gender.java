@@ -1,4 +1,4 @@
-package mini.petrovich;
+package com.github.petrovich4j;
 
 /**
  * Пол
