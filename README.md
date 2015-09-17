@@ -13,6 +13,14 @@ __petrovich4j__  - это Java библиотека для склонения п
 mvn -DskipTests=true clean package install
 ```
 
+## Maven
+```xml
+<dependency>
+  <groupId>com.github.petrovich4j</groupId>
+  <artifactId>petrovich4j</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 ## Usage
 
 ```java
