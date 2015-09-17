@@ -119,7 +119,7 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- Sign release build o-->
+                    <!-- Sign release build -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
