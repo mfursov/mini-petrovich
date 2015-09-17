@@ -4,7 +4,7 @@
 
     <groupId>com.github.petrovich4j</groupId>
     <artifactId>petrovich4j</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>petrovich4j</name>
@@ -19,6 +19,7 @@
         </license>
     </licenses>
 
+    <!-- Sonatype maven repositories.-->
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -30,6 +31,22 @@
         </repository>
     </distributionManagement>
 
+    <!-- Source repository. Required by Sonatype .-->
+    <scm>
+        <connection>scm:git:git://github.com/petrovich4j/petrovich4j.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/petrovich4j/petrovich4j.git</developerConnection>
+        <url>http://github.com/petrovich4j/petrovich4j</url>
+    </scm>
+
+    <!-- List of active developers. Required by Sonatype .-->
+    <developers>
+        <developer>
+            <id>petrovich4j-team</id>
+            <name>Petrovich4j team</name>
+        </developer>
+    </developers>
+
+    <!-- Ensure that sources/resources are in UTF-8 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -47,7 +64,7 @@
                     </includes>
                 </configuration>
             </plugin>
-            <!-- Maven distribution -->
+            <!-- Distribution with maven. Both for snapshots & release -->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -59,22 +76,67 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
-            <!-- src.jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
+
+    <!-- Separate profile for release distribution -->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- sources jar -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.4</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- javadocs jar -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.3</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Sign release build o-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
