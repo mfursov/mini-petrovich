@@ -7,6 +7,8 @@
  - [#3](https://github.com/petrovich4j/petrovich4j/issues/3)  - Склонение фамилий с буквой 'ё'.
  - [#4](https://github.com/petrovich4j/petrovich4j/issues/4)  - Правильно будет 'Ильчом', а не 'Ильичём'.
  - [#5](https://github.com/petrovich4j/petrovich4j/issues/5)  - Корректное склонение имени Ия.
+ - [#6](https://github.com/petrovich4j/petrovich4j/issues/6)  - Корректное склонение фамилии Муромец.
+
 
 
 ## v1.0.0 - 2015-09-17

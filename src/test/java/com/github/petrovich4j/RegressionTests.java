@@ -27,6 +27,11 @@ public class RegressionTests {
     }
 
     @Test
+    public void issue1() throws Exception {
+        checkName(NameType.FirstName, Gender.Male, "Паша", "Паши", "Паше", "Пашу", "Пашей", "Паше");
+    }
+
+    @Test
     public void issue2() throws Exception {
         checkName(NameType.FirstName, Gender.Male, "Павел", "Павла", "Павлу", "Павла", "Павлом", "Павле");
     }
@@ -44,5 +49,10 @@ public class RegressionTests {
     @Test
     public void issue5() throws Exception {
         checkName(NameType.FirstName, Gender.Female, "Ия", "Ии", "Ие", "Ию", "Ией", "Ие");
+    }
+
+    @Test
+    public void issue6() throws Exception {
+        checkName(NameType.LastName, Gender.Male, "Муромец", "Муромца", "Муромцу", "Муромца", "Муромцем", "Муромце");
     }
 }
