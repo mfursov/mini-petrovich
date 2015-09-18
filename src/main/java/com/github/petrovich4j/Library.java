@@ -68,7 +68,8 @@ final class Library {
                     male(t("павел"), m("--ла", "--лу", "--ла", "--лом", "--ле")),
                     male(t("яша"), m("-и", "-е", "-у", "-ей", "-е")),
                     male(t("шота"), KEEP_ALL),
-                    female(t("рашель", "нинель", "николь", "габриэль", "даниэль"), KEEP_ALL)
+                    female(t("рашель", "нинель", "николь", "габриэль", "даниэль"), KEEP_ALL),
+                    female(t("^ия"), m("--Ии", "--Ие", "--Ию", "--Ией", "--Ие"))
             },
             new Rule[]{ // Suffixes
                     both(t("е", "ё", "и", "о", "у", "ы", "э", "ю"), KEEP_ALL),
@@ -94,6 +95,7 @@ final class Library {
     static final RuleSet PATRONYMIC_NAME_RULES = new RuleSet(
             new Rule[]{},// Exceptions
             new Rule[]{ // Suffixes
+                    male(t("ьич"), m("а", "у", "а", "ом", "е")), // http://new.gramota.ru/spravka/trudnosti?layout=item&id=36_189
                     male(t("ич"), m("а", "у", "а", "ем", "е")),
                     female(t("на"), m("-ы", "-е", "-у", "-ой", "-е")),
             }

@@ -67,7 +67,9 @@ public class Petrovich {
         String lcName = name.toLowerCase();
         for (Rule rule : allRules) {
             for (String test : rule.test) {
-                if (lcName.endsWith(test) && (rule.gender == Gender.Both || rule.gender == gender)) {
+                boolean fullMatch = test.charAt(0) == '^';
+                boolean nameMatched = fullMatch ? test.substring(1).equals(lcName) : lcName.endsWith(test);
+                if (nameMatched && (rule.gender == Gender.Both || rule.gender == gender)) {
                     return rule;
                 }
             }

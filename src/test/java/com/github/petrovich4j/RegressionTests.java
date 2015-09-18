@@ -18,12 +18,31 @@ public class RegressionTests {
         petrovich = new Petrovich();
     }
 
+    private void checkName(NameType nameType, Gender gender, String p1, String p2, String p3, String p4, String p5, String p6) {
+        assertEquals(petrovich.say(p1, nameType, gender, Case.Genitive), p2);
+        assertEquals(petrovich.say(p1, nameType, gender, Case.Dative), p3);
+        assertEquals(petrovich.say(p1, nameType, gender, Case.Accusative), p4);
+        assertEquals(petrovich.say(p1, nameType, gender, Case.Instrumental), p5);
+        assertEquals(petrovich.say(p1, nameType, gender, Case.Prepositional), p6);
+    }
+
     @Test
     public void issue2() throws Exception {
-        assertEquals(petrovich.say("Павел", NameType.FirstName, Gender.Male, Case.Genitive), "Павла");
-        assertEquals(petrovich.say("Павел", NameType.FirstName, Gender.Male, Case.Dative), "Павлу");
-        assertEquals(petrovich.say("Павел", NameType.FirstName, Gender.Male, Case.Accusative), "Павла");
-        assertEquals(petrovich.say("Павел", NameType.FirstName, Gender.Male, Case.Instrumental), "Павлом");
-        assertEquals(petrovich.say("Павел", NameType.FirstName, Gender.Male, Case.Prepositional), "Павле");
+        checkName(NameType.FirstName, Gender.Male, "Павел", "Павла", "Павлу", "Павла", "Павлом", "Павле");
+    }
+
+    @Test
+    public void issue3() throws Exception {
+        checkName(NameType.LastName, Gender.Female, "Ковалёва", "Ковалёвой", "Ковалёвой", "Ковалёву", "Ковалёвой", "Ковалёвой");
+    }
+
+    @Test
+    public void issue4() throws Exception {
+        checkName(NameType.PatronymicName, Gender.Male, "Ильич", "Ильича", "Ильичу", "Ильича", "Ильичом", "Ильиче");
+    }
+
+    @Test
+    public void issue5() throws Exception {
+        checkName(NameType.FirstName, Gender.Female, "Ия", "Ии", "Ие", "Ию", "Ией", "Ие");
     }
 }
