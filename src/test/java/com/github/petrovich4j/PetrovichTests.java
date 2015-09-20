@@ -17,6 +17,8 @@ import static com.github.petrovich4j.Library.female;
 import static com.github.petrovich4j.Library.m;
 import static com.github.petrovich4j.Library.male;
 import static com.github.petrovich4j.Library.t;
+import static com.github.petrovich4j.NameType.FirstName;
+import static com.github.petrovich4j.NameType.PatronymicName;
 import static org.testng.Assert.assertEquals;
 
 @Test
@@ -70,14 +72,14 @@ public class PetrovichTests {
     public void testFemaleFirstNames() throws Exception {
         List<String[]> testCases = load("first_names_female.txt");
         for (String[] test : testCases) {
-            check(petrovich, test, NameType.FirstName, Gender.Female);
+            check(petrovich, test, FirstName, Gender.Female);
         }
     }
 
     @Test
     public void testMaleFirstNames() throws Exception {
         for (String[] test : load("first_names_male.txt")) {
-            check(petrovich, test, NameType.FirstName, Gender.Male);
+            check(petrovich, test, FirstName, Gender.Male);
         }
     }
 
@@ -98,15 +100,20 @@ public class PetrovichTests {
     @Test
     public void testFemalePatronymicNames() throws Exception {
         for (String[] test : load("patronymic_names_female.txt")) {
-            check(petrovich, test, NameType.PatronymicName, Gender.Female);
+            check(petrovich, test, PatronymicName, Gender.Female);
         }
     }
 
     @Test
     public void testMalePatronymicNames() throws Exception {
         for (String[] test : load("patronymic_names_male.txt")) {
-            check(petrovich, test, NameType.PatronymicName, Gender.Male);
+            check(petrovich, test, PatronymicName, Gender.Male);
         }
+    }
+
+    @Test
+    public void checkLatinName() throws Exception {
+        check(petrovich, new String[]{"John", "John", "John", "John", "John", "John"}, FirstName, Male);
     }
 
     private void check(Petrovich p, String[] test, NameType type, Gender gender) {
