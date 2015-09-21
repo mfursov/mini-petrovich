@@ -8,6 +8,7 @@
  - [#4](https://github.com/petrovich4j/petrovich4j/issues/4)  - Правильно будет 'Ильчом', а не 'Ильичём'.
  - [#5](https://github.com/petrovich4j/petrovich4j/issues/5)  - Корректное склонение имени Ия.
  - [#6](https://github.com/petrovich4j/petrovich4j/issues/6)  - Корректное склонение фамилии Муромец.
+ - [#7](https://github.com/petrovich4j/petrovich4j/issues/7)  - Корректное склонение имени Санёк.
 
 
 
