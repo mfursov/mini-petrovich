@@ -65,4 +65,9 @@ public class RegressionTests {
     public void issue8() throws Exception {
         checkName(NameType.FirstName, Gender.Male, "Франсуа", "Франсуа", "Франсуа", "Франсуа", "Франсуа", "Франсуа");
     }
+
+    @Test
+    public void issue9() throws Exception {
+        checkName(NameType.FirstName, Gender.Female, "Айгюль", "Айгюль", "Айгюль", "Айгюль", "Айгюль", "Айгюль");
+    }
 }
