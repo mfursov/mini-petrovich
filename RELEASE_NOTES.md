@@ -2,6 +2,7 @@
 
 #### Исправления
  - [#8](https://github.com/petrovich4j/petrovich4j/issues/8)  - Имена заканчивающихся на 'уа' не должны склоняться: Франсуа
+ - [#9](https://github.com/petrovich4j/petrovich4j/issues/9)  - Имя не должно склоняться: 'Айгюль'
 
 
 ## v1.0.1 - 2015-09-21
