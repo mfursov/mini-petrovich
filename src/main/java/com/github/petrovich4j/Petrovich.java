@@ -27,8 +27,8 @@ public class Petrovich {
             throw new IllegalArgumentException("Not all required parameters are set! Type: " + type + ", gender:" + gender + ", case: " + cas);
         }
         RuleSet rules = type == NameType.FirstName ? firstNameRules : type == NameType.LastName ? lastNameRules : patronymicNameRules;
-        Rule exceptionRule = findRule(rules.exceptions, gender, name);
-        Rule suffixRule = findRule(rules.suffixes, gender, name);
+        Rule exceptionRule = findRule(rules.exceptions, gender, name, true);
+        Rule suffixRule = findRule(rules.suffixes, gender, name, true);
         Rule rule;
         if (exceptionRule != null && exceptionRule.gender == gender) {
             rule = exceptionRule;
@@ -38,6 +38,25 @@ public class Petrovich {
             rule = exceptionRule != null ? exceptionRule : suffixRule;
         }
         return rule == null ? name : applyMod(rule.mods[cas.modIdx], name);
+    }
+
+    public Gender resolve(String name, NameType type, Gender defaultValue) {
+        if (name == null || name.isEmpty()) {
+            return defaultValue;
+        }
+        if (type == null) {
+            throw new IllegalArgumentException("Not all required parameters are set! Type: " + type + ", gender:" + gender + ", case: " + cas);
+        }
+        RuleSet rules = type == NameType.FirstName ? firstNameRules : type == NameType.LastName ? lastNameRules : patronymicNameRules;
+        Rule exceptionRule = findRule(rules.exceptions, gender, name, false);
+        Rule suffixRule = findRule(rules.suffixes, gender, name, false);
+        Rule rule;
+        if (exceptionRule != null) {
+            return defaulValue;
+        } else if (suffixRule != null) {
+            return rule.gender;
+        }
+        return defaultValue;
     }
 
     static String applyMod(String mod, String name) {
@@ -60,7 +79,7 @@ public class Petrovich {
         return result;
     }
 
-    static Rule findRule(Rule[] allRules, Gender gender, String name) {
+    static Rule findRule(Rule[] allRules, Gender gender, String name, boolean checkGender) {
         if (allRules == null) {
             return null;
         }
@@ -69,7 +88,7 @@ public class Petrovich {
             for (String test : rule.test) {
                 boolean fullMatch = test.charAt(0) == '^';
                 boolean nameMatched = fullMatch ? test.substring(1).equals(lcName) : lcName.endsWith(test);
-                if (nameMatched && (rule.gender == Gender.Both || rule.gender == gender)) {
+                if (nameMatched && (!checkGender || rule.gender == Gender.Both || rule.gender == gender)) {
                     return rule;
                 }
             }
