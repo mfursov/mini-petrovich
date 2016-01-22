@@ -40,6 +40,24 @@ public class Petrovich {
         return rule == null ? name : applyMod(rule.mods[cas.modIdx], name);
     }
 
+    public Gender resolve(String name, NameType type, Gender defaultValue) {
+        if (name == null || name.isEmpty()) {
+            return defaultValue;
+        }
+        if (type == null) {
+            throw new IllegalArgumentException("Not all required parameters are set! Type: " + type);
+        }
+        RuleSet rules = type == NameType.FirstName ? firstNameRules : type == NameType.LastName ? lastNameRules : patronymicNameRules;
+        Rule exceptionRule = findRule(rules.exceptions, null, name, false);
+        Rule suffixRule = findRule(rules.suffixes, null, name, false);
+        if (exceptionRule != null) {
+            return defaultValue;
+        } else if (suffixRule != null) {
+            return suffixRule.gender;
+        }
+        return defaultValue;
+    }
+
     static String applyMod(String mod, String name) {
         if (mod.equals(Library.KEEP_MOD)) {
             return name;
@@ -61,6 +79,10 @@ public class Petrovich {
     }
 
     static Rule findRule(Rule[] allRules, Gender gender, String name) {
+        return findRule(allRules, gender, name, true);
+    }
+
+    private static Rule findRule(Rule[] allRules, Gender gender, String name, boolean checkGender) {
         if (allRules == null) {
             return null;
         }
@@ -69,7 +91,7 @@ public class Petrovich {
             for (String test : rule.test) {
                 boolean fullMatch = test.charAt(0) == '^';
                 boolean nameMatched = fullMatch ? test.substring(1).equals(lcName) : lcName.endsWith(test);
-                if (nameMatched && (rule.gender == Gender.Both || rule.gender == gender)) {
+                if (nameMatched && (!checkGender || rule.gender == Gender.Both || rule.gender == gender)) {
                     return rule;
                 }
             }
