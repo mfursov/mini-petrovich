@@ -40,19 +40,27 @@ public class Petrovich {
         return rule == null ? name : applyMod(rule.mods[cas.modIdx], name);
     }
 
-    public Gender resolve(String name, NameType type, Gender defaultValue) {
+    /**
+     * Guess gender for NameType.PatronymicName
+     */
+    public Gender gender(String name, Gender defaultValue) {
+        return gender(name, NameType.PatronymicName, defaultValue);
+    }
+
+    Gender gender(String name, NameType type, Gender defaultValue) {
         if (name == null || name.isEmpty()) {
             return defaultValue;
         }
         if (type == null) {
-            throw new IllegalArgumentException("Not all required parameters are set! Type: " + type);
+            throw new IllegalArgumentException("Not all required parameters are set: name type is null! ");
         }
         RuleSet rules = type == NameType.FirstName ? firstNameRules : type == NameType.LastName ? lastNameRules : patronymicNameRules;
         Rule exceptionRule = findRule(rules.exceptions, null, name, false);
-        Rule suffixRule = findRule(rules.suffixes, null, name, false);
         if (exceptionRule != null) {
             return defaultValue;
-        } else if (suffixRule != null) {
+        }
+        Rule suffixRule = findRule(rules.suffixes, null, name, false);
+        if (suffixRule != null) {
             return suffixRule.gender;
         }
         return defaultValue;

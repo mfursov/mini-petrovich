@@ -18,7 +18,7 @@ mvn -DskipTests=true clean package install
 <dependency>
   <groupId>com.github.petrovich4j</groupId>
   <artifactId>petrovich4j</artifactId>
-  <version>1.0.2</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 ## Usage
@@ -28,6 +28,9 @@ Petrovich p = new Petrovich();
 p.say("Александр", NameType.FirstName, Gender.Male, Case.Genitive) ➟ "Александра"
 p.say("Сергеевич", NameType.PatronymicName, Gender.Male, Case.Dative) ➟ "Сергеевичу"
 p.say("Пушкин", NameType.LastName, Gender.Male, Case.Prepositional) ➟  "Пушкине"
+
+p.gender("Петрович", Gender.Both) ➟  Gender.Male
+p.gender("Ивановна", Gender.Both) ➟  Gender.Female
 ```
 
 ### Конфигурация

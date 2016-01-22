@@ -4,7 +4,7 @@
 
     <groupId>com.github.petrovich4j</groupId>
     <artifactId>petrovich4j</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>petrovich4j</name>
@@ -53,6 +53,15 @@
 
     <build>
         <plugins>
+            <!-- Java compiler -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <!-- Testing support -->
                 <groupId>org.apache.maven.plugins</groupId>

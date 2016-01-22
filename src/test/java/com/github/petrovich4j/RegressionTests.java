@@ -9,7 +9,6 @@ import static org.testng.Assert.assertEquals;
 /**
  *
  */
-@Test
 public class RegressionTests {
     private Petrovich petrovich;
 

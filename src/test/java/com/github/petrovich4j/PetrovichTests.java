@@ -9,19 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.github.petrovich4j.Gender.Both;
-import static com.github.petrovich4j.Gender.Female;
-import static com.github.petrovich4j.Gender.Male;
-import static com.github.petrovich4j.Library.both;
-import static com.github.petrovich4j.Library.female;
-import static com.github.petrovich4j.Library.m;
-import static com.github.petrovich4j.Library.male;
-import static com.github.petrovich4j.Library.t;
-import static com.github.petrovich4j.NameType.FirstName;
-import static com.github.petrovich4j.NameType.PatronymicName;
+import static com.github.petrovich4j.Gender.*;
+import static com.github.petrovich4j.Library.*;
+import static com.github.petrovich4j.NameType.*;
 import static org.testng.Assert.assertEquals;
 
-@Test
 public class PetrovichTests {
 
     private Petrovich petrovich;
@@ -122,6 +114,69 @@ public class PetrovichTests {
         assertEquals(p.say(test[0], type, gender, Case.Accusative), test[3], "Accusative case, " + gender + ":");
         assertEquals(p.say(test[0], type, gender, Case.Instrumental), test[4], "Instrumental case, " + gender + ":");
         assertEquals(p.say(test[0], type, gender, Case.Prepositional), test[5], "Prepositional case, " + gender + ":");
+    }
+
+    //    Gender tests. TODO: add gender() tests for Gender.Both
+    @Test
+    public void checkGenderDefault() throws Exception {
+        Gender expected = Male;
+        Gender result = petrovich.gender("anonymous", LastName, expected);
+        assertEquals(expected, result);
+
+        expected = Female;
+        result = petrovich.gender("anonymous", PatronymicName, expected);
+        assertEquals(expected, result);
+
+        expected = Both;
+        result = petrovich.gender("anonymous", FirstName, expected);
+        assertEquals(expected, result);
+
+    }
+
+    @Test(enabled = false)
+    public void checkGenderFirstNameMale() {
+        for (String[] test : load("first_names_male.txt")) {
+            checkGender(petrovich, test[0], NameType.FirstName, Gender.Male);
+        }
+    }
+
+    @Test(enabled = false)
+    public void checkGenderFirstNameFemale() {
+        for (String[] test : load("first_names_female.txt")) {
+            checkGender(petrovich, test[0], NameType.FirstName, Gender.Female);
+        }
+    }
+
+    @Test(enabled = false)
+    public void checkGenderLastNameMale() {
+        for (String[] test : load("last_names_male.txt")) {
+            checkGender(petrovich, test[0], NameType.LastName, Gender.Male);
+        }
+    }
+
+    @Test(enabled = false)
+    public void checkGenderLastNameFemale() {
+        for (String[] test : load("last_names_female.txt")) {
+            checkGender(petrovich, test[0], NameType.LastName, Gender.Female);
+        }
+    }
+
+    @Test
+    public void checkGenderPatronymicNameMale() {
+        for (String[] test : load("patronymic_names_male.txt")) {
+            checkGender(petrovich, test[0], NameType.PatronymicName, Gender.Male);
+        }
+    }
+
+    @Test
+    public void checkGenderPatronymicNameFemale() {
+        for (String[] test : load("patronymic_names_female.txt")) {
+            checkGender(petrovich, test[0], NameType.PatronymicName, Gender.Female);
+        }
+    }
+
+    private void checkGender(Petrovich p, String name, NameType nameType, Gender expected) {
+        assertEquals(p.gender(name, nameType, null), expected, name + "/" + nameType);
     }
 
 
