@@ -27,8 +27,8 @@ public class Petrovich {
             throw new IllegalArgumentException("Not all required parameters are set! Type: " + type + ", gender:" + gender + ", case: " + cas);
         }
         RuleSet rules = type == NameType.FirstName ? firstNameRules : type == NameType.LastName ? lastNameRules : patronymicNameRules;
-        Rule exceptionRule = findRule(rules.exceptions, gender, name, true);
-        Rule suffixRule = findRule(rules.suffixes, gender, name, true);
+        Rule exceptionRule = findRule(rules.exceptions, gender, name);
+        Rule suffixRule = findRule(rules.suffixes, gender, name);
         Rule rule;
         if (exceptionRule != null && exceptionRule.gender == gender) {
             rule = exceptionRule;
@@ -78,7 +78,11 @@ public class Petrovich {
         return result;
     }
 
-    static Rule findRule(Rule[] allRules, Gender gender, String name, boolean checkGender) {
+    static Rule findRule(Rule[] allRules, Gender gender, String name) {
+        return findRule(allRules, gender, name, true);
+    }
+
+    private static Rule findRule(Rule[] allRules, Gender gender, String name, boolean checkGender) {
         if (allRules == null) {
             return null;
         }
