@@ -45,16 +45,15 @@ public class Petrovich {
             return defaultValue;
         }
         if (type == null) {
-            throw new IllegalArgumentException("Not all required parameters are set! Type: " + type + ", gender:" + gender + ", case: " + cas);
+            throw new IllegalArgumentException("Not all required parameters are set! Type: " + type);
         }
         RuleSet rules = type == NameType.FirstName ? firstNameRules : type == NameType.LastName ? lastNameRules : patronymicNameRules;
-        Rule exceptionRule = findRule(rules.exceptions, gender, name, false);
-        Rule suffixRule = findRule(rules.suffixes, gender, name, false);
-        Rule rule;
+        Rule exceptionRule = findRule(rules.exceptions, null, name, false);
+        Rule suffixRule = findRule(rules.suffixes, null, name, false);
         if (exceptionRule != null) {
-            return defaulValue;
+            return defaultValue;
         } else if (suffixRule != null) {
-            return rule.gender;
+            return suffixRule.gender;
         }
         return defaultValue;
     }
