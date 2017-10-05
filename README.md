@@ -20,7 +20,7 @@ mvn -DskipTests=true clean package install
 <dependency>
   <groupId>com.github.petrovich4j</groupId>
   <artifactId>petrovich4j</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
 </dependency>
 ```
 ## Usage
