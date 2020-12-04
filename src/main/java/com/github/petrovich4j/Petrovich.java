@@ -66,7 +66,7 @@ public class Petrovich {
         return defaultValue;
     }
 
-    static String applyMod(String mod, String name) {
+    public static String applyMod(String mod, String name) {
         if (mod.equals(Library.KEEP_MOD)) {
             return name;
         }
@@ -86,7 +86,7 @@ public class Petrovich {
         return result;
     }
 
-    static Rule findRule(Rule[] allRules, Gender gender, String name) {
+    public static Rule findRule(Rule[] allRules, Gender gender, String name) {
         return findRule(allRules, gender, name, true);
     }
 

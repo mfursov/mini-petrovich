@@ -1,5 +1,7 @@
 package com.github.petrovich4j;
 
+import java.util.Arrays;
+
 public final class Rule {
 
     /**
@@ -18,8 +20,10 @@ public final class Rule {
     public final String[] mods;
 
     public Rule(Gender gender, String[] test, String[] mods) {
+        if (gender == null) throw new NullPointerException(); // java 1.6: no java.util.Objects
         this.gender = gender;
-        this.test = test;
-        this.mods = mods;
+        // make a copy to have truly immutable object
+        this.test = Arrays.copyOf(test, test.length);
+        this.mods = Arrays.copyOf(mods, mods.length);
     }
 }
