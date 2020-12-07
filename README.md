@@ -7,7 +7,7 @@ __petrovich4j__ - это Java библиотека для склонения п�
 
 [![Build Status](https://travis-ci.org/petrovich4j/petrovich4j.svg?branch=master)]	(https://travis-ci.org/petrovich4j/petrovich4j)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.petrovich4j/petrovich4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.petrovich4j/petrovich4j)
-[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.github.petrovich4j/petrovich4j/badge.svg)](http://www.javadoc.io/doc/com.github.petrovich4j/petrovich4j)
+[![Javadoc](https://javadoc.io/badge2/com.github.petrovich4j/petrovich4j/javadoc.svg)](http://www.javadoc.io/doc/com.github.petrovich4j/petrovich4j)
 
 ## Building
 
