@@ -13,7 +13,6 @@ public final class RuleSet {
     public final Rule[] suffixes;
 
     public RuleSet(Rule[] exceptions, Rule[] suffixes) {
-        // make a copy to have truly immutable object
         this.exceptions = Arrays.copyOf(exceptions, exceptions.length);
         this.suffixes = Arrays.copyOf(suffixes, suffixes.length);
     }
