@@ -5,7 +5,7 @@ __petrovich4j__ is a Java library which inflects Russian names to given grammati
 
 __petrovich4j__ - это Java библиотека для склонения по пажежам русских имен, фамилий и отчеств. Библиотека не имеет дополнительных зависимостей и имеет размер около 12кб.
 
-[![Build Status](https://travis-ci.org/petrovich4j/petrovich4j.svg?branch=master)]	(https://travis-ci.org/petrovich4j/petrovich4j)
+[![Build Status](https://travis-ci.org/petrovich4j/petrovich4j.svg?branch=master)](https://travis-ci.org/petrovich4j/petrovich4j)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.petrovich4j/petrovich4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.petrovich4j/petrovich4j)
 [![Javadoc](https://javadoc.io/badge2/com.github.petrovich4j/petrovich4j/javadoc.svg)](http://www.javadoc.io/doc/com.github.petrovich4j/petrovich4j)
 
